@@ -14,7 +14,7 @@ class SeminarStore {
     async fetchSeminars() {
         this.loading = true;//меняем флаг обозначающий загрузку
         try {
-            const response = await axios.get("http://localhost:5000/seminars"); //запрос к серверу на получение списка семинаров
+            const response = await axios.get("https://test-itstart-api.onrender.com/seminars"); //запрос к серверу на получение списка семинаров
             this.seminars = response.data;//сохраняяем данные в свойство при успешном запросе
         } catch (error) {
             console.error("Ошибка при загрузке семинаров:", error);//если поймали ошибку выводим ее в консоль
@@ -25,14 +25,14 @@ class SeminarStore {
 
     //удаление семинара из списка
     async deleteSeminar(id) {
-        await axios.delete(`http://localhost:5000/seminars/${id}`);//отправляем запрос судалением на сервер
+        await axios.delete(`https://test-itstart-api.onrender.com/seminars/${id}`);//отправляем запрос судалением на сервер
         this.seminars = this.seminars.filter(seminar => seminar.id !== id);//при успешном запросе обновляем состояние удаляя семинар из массива
     }
 
     //запрос на редактирование
     async editSeminar(updatedSeminar) {
         try {
-            await axios.put(`http://localhost:5000/seminars/${updatedSeminar.id}`, updatedSeminar); // Отправляем запрос на редактирование
+            await axios.put(`https://test-itstart-api.onrender.com/seminars/${updatedSeminar.id}`, updatedSeminar); // Отправляем запрос на редактирование
             const index = this.seminars.findIndex(seminar => seminar.id === updatedSeminar.id); // Находим индекс семинара в массиве
             if (index !== -1) {
                 this.seminars[index] = updatedSeminar; // Обновляем семинар в массиве
