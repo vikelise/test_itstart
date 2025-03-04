@@ -11,3 +11,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  --primary-text-color: rgba(1, 1, 1, 0.9);
+  --primary-background-color: rgba(255, 255, 255, 1);
+  --secondary-background-color: rgba(128, 128, 128, 0.8);
+  --light-secondary-background-color: rgba(128, 128, 128, 0.15);
+  --error-background-color: rgba(255, 0, 0, 0.3);
+  --error-text-color: rgba(255, 0, 0, 1);
+}
+
+body{
+  color: var(--primary-text-color);
+  background-color: var(--primary-background-color);
+}
